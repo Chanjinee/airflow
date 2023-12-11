@@ -1,3 +1,4 @@
+# Python operate 에서 jinja 템플릿 사용하기
 # 두가지 방법을 사용해서 차이점 확인
 from airflow import DAG
 import pendulum
