@@ -8,7 +8,7 @@ with DAG(
     schedule="10 0 * * *",
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
     catchup=False
-) as dag: # BashOperator에서 xcom을 사용하기 위해서는 템플릿 언어를 사용해야함
+) as dag: # BashOperator에서 xcom을 사용하기 위해서는 템플릿 문법을 사용해야함
     bash_push = BashOperator(
     task_id='bash_push',
     bash_command="echo START && " # echo 하는 것도 return이랑 동일하게 취급됨
