@@ -27,7 +27,7 @@ with DAG(
     # 직접 날짜 연산
     @task(task_id='task_direct_calc')
     def get_datetime_calc(**kwargs):
-        from dateutil.relativedelta import relativedelta
+        from dateutil.relativedelta import relativedelta # 함수 안에다가 작성해 놓은 이유: 스케쥴러 부하 경감을 위해 -> 맨 위에다 import할 경우 쓰이지 않더라도 import됨
 
         data_interval_end = kwargs['data_interval_end']
         prev_month_day_first = data_interval_end.in_timezone('Asia/Seoul') + relativedelta(months=-1, day=1)
