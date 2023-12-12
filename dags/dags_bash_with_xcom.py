@@ -22,7 +22,7 @@ with DAG(
         env={'PUSHED_VALUE':"{{ ti.xcom_pull(key='bash_pushed') }}",
             'RETURN_VALUE':"{{ ti.xcom_pull(task_ids='bash_push') }}"},
         bash_command="echo $PUSHED_VALUE && echo $RETURN_VALUE ",
-        do_xcom_push=False
+        do_xcom_push=False # xcom에 저장할 것인지 말 것인지를 정하는 파라미터
     )
 
     bash_push >> bash_pull
