@@ -19,7 +19,7 @@ with DAG(
         elif selected_item in ['B','C']:
             return ['task_b','task_c'] # 여러개의 태스크를 실행하고 싶을 땐, 리스트 형태로 리턴
     
-    python_branch_task = BranchPythonOperator(
+    python_branch_task = BranchPythonOperator( # BranchPythonOperator로 실행하는 함수의 return값은 후행 태스트의 ID임
         task_id='python_branch_task',
         python_callable=select_random
     )
