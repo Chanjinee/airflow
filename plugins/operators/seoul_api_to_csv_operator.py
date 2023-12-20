@@ -17,7 +17,7 @@ class SeoulApiToCsvOperator(BaseOperator):
         import os
         
         connection = BaseHook.get_connection(self.http_conn_id)
-        self.base_url = f'http://{connection.host}:{connection.port}/{self.endpoint}'
+        self.base_url = f'{connection.host}:{connection.port}/{self.endpoint}' # http://가 중복으로 들어가는 문제 디버깅으로 확인 및 수정
 
         total_row_df = pd.DataFrame()
         start_row = 1
